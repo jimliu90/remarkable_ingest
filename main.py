@@ -36,9 +36,18 @@ def main():
             # Clean the filename according to convention
             cleaned_name = clean_filename_for_ocr(fname)
             
+            # Route to subdirectory based on title content
+            title_lower = cleaned_name.lower()
+            if "weekly" in title_lower or "daily" in title_lower:
+                subdirectory = "review"
+            else:
+                subdirectory = "general"
+            
             # Format: YYYY-MM-DD-lower-case-hyphenated-name.md
             filename = f"{date_str}-{cleaned_name}.md"
-            out_path = os.path.join(OUTPUT_DIR, filename)
+            subdir_path = os.path.join(OUTPUT_DIR, subdirectory)
+            ensure_dir(subdir_path)
+            out_path = os.path.join(subdir_path, filename)
             
             # Use original filename (sanitized) for title in front matter
             title = sanitize_filename(os.path.splitext(fname)[0])
