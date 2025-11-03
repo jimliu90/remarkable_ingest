@@ -42,17 +42,22 @@ launchctl start com.remarkable.ingest
 
 ## Logs
 
-- Service output: `~/Dev/monorepo/dev/remarkable_ingest/run.log`
-- Standard output: `~/Dev/monorepo/dev/remarkable_ingest/stdout.log`
-- Standard error: `~/Dev/monorepo/dev/remarkable_ingest/stderr.log`
+- Service output: `~/dev/remarkable_ingest/run.log`
+- Standard output: `~/dev/remarkable_ingest/stdout.log`
+- Standard error: `~/dev/remarkable_ingest/stderr.log`
 
 ## Schedule
 
-Runs at:
+Runs every 3 hours:
 
-- 9:00 AM system time
-- 3:00 PM system time
-- 9:00 PM system time
+- 12:00 AM (midnight)
+- 3:00 AM
+- 6:00 AM
+- 9:00 AM
+- 12:00 PM (noon)
+- 3:00 PM
+- 6:00 PM
+- 9:00 PM
 - On system load (RunAtLoad)
 
 **Note**: Times are in system timezone. Ensure your Mac is set to PT if you want Pacific Time.

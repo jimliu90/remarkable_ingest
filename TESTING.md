@@ -7,7 +7,7 @@ Complete step-by-step guide to get reMarkable ingest running and test it end-to-
 Let's verify what's already set up:
 
 ```bash
-cd ~/Dev/monorepo/dev/remarkable_ingest
+cd ~/dev/remarkable_ingest
 
 # Check if credentials.json exists (Gmail OAuth)
 ls -la credentials.json
@@ -22,7 +22,7 @@ python3 --version
 ## Step 1: Verify Virtual Environment
 
 ```bash
-cd ~/Dev/monorepo/dev/remarkable_ingest
+cd ~/dev/remarkable_ingest
 
 # Create virtual environment if it doesn't exist
 python3 -m venv .venv
@@ -69,7 +69,7 @@ python3 -m json.tool credentials.json > /dev/null && echo "✓ credentials.json 
 Before running end-to-end, let's verify Gmail API works:
 
 ```bash
-cd ~/Dev/monorepo/dev/remarkable_ingest
+cd ~/dev/remarkable_ingest
 source .venv/bin/activate
 
 # This will open browser for OAuth on first run
@@ -117,7 +117,7 @@ print(f'✓ OPENAI_MODEL: {model}')
 ## Step 7: Run End-to-End Test
 
 ```bash
-cd ~/Dev/monorepo/dev/remarkable_ingest
+cd ~/dev/remarkable_ingest
 source .venv/bin/activate
 
 # Run the full pipeline
@@ -173,7 +173,7 @@ Expected: Should not create duplicate files (should say `saved_files=0` if no ne
 - Verify you're in the project directory when running
 
 ### "credentials.json not found"
-- File should be in project root: `~/Dev/monorepo/dev/remarkable_ingest/credentials.json`
+- File should be in project root: `~/dev/remarkable_ingest/credentials.json`
 - Verify it's valid JSON: `python3 -m json.tool credentials.json`
 
 ### "No module named 'openai'"
@@ -201,7 +201,7 @@ Expected: Should not create duplicate files (should say `saved_files=0` if no ne
 Run this to verify everything is ready:
 
 ```bash
-cd ~/Dev/monorepo/dev/remarkable_ingest
+cd ~/dev/remarkable_ingest
 source .venv/bin/activate
 
 python3 << 'EOF'

@@ -6,7 +6,7 @@ Implement a Python-based pipeline that automatically fetches PNG attachments fro
 
 ## Current State Analysis
 
-This is a greenfield project. No existing code or infrastructure exists. The target directory `/Users/jim/Dev/monorepo/dev/remarkable_ingest` has been created but is empty.
+This is a greenfield project. No existing code or infrastructure exists. The target directory `/Users/jim/dev/remarkable_ingest` has been created but is empty.
 
 ### Key Requirements:
 
@@ -553,11 +553,11 @@ Create launchd plist for macOS scheduling and deployment documentation.
     <array>
       <string>/bin/zsh</string>
       <string>-lc</string>
-      <string>cd ~/Dev/monorepo/dev/remarkable_ingest && source .venv/bin/activate && python main.py >> run.log 2>&1</string>
+      <string>cd ~/dev/remarkable_ingest && source .venv/bin/activate && python main.py >> run.log 2>&1</string>
     </array>
-    <key>StandardOutPath</key><string>~/Dev/monorepo/dev/remarkable_ingest/stdout.log</string>
-    <key>StandardErrorPath</key><string>~/Dev/monorepo/dev/remarkable_ingest/stderr.log</string>
-    <key>WorkingDirectory</key><string>~/Dev/monorepo/dev/remarkable_ingest</string>
+    <key>StandardOutPath</key><string>~/dev/remarkable_ingest/stdout.log</string>
+    <key>StandardErrorPath</key><string>~/dev/remarkable_ingest/stderr.log</string>
+    <key>WorkingDirectory</key><string>~/dev/remarkable_ingest</string>
   </dict>
 </plist>
 ```
@@ -614,9 +614,9 @@ launchctl start com.remarkable.ingest
 
 ## Logs
 
-- Service output: `~/Dev/monorepo/dev/remarkable_ingest/run.log`
-- Standard output: `~/Dev/monorepo/dev/remarkable_ingest/stdout.log`
-- Standard error: `~/Dev/monorepo/dev/remarkable_ingest/stderr.log`
+- Service output: `~/dev/remarkable_ingest/run.log`
+- Standard output: `~/dev/remarkable_ingest/stdout.log`
+- Standard error: `~/dev/remarkable_ingest/stderr.log`
 
 ## Schedule
 

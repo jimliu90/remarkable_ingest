@@ -15,17 +15,21 @@ Automatically converts reMarkable PNG exports from Gmail to Markdown using OpenA
 See **[TESTING.md](TESTING.md)** for complete step-by-step guide.
 
 Quick version:
+
 1. **Verify setup:**
+
    ```bash
-   cd ~/Dev/monorepo/dev/remarkable_ingest
+   cd ~/dev/remarkable_ingest
    source .venv/bin/activate
    pip install -r requirements.txt
    ```
 
 2. **Run:**
+
    ```bash
    python main.py
    ```
+
    - First run will open browser for Gmail OAuth
    - Processes emails with "Remarkable" label + PNG attachments
    - Saves to `~/Documents/remarkable-md/`
@@ -40,13 +44,13 @@ Quick version:
 To manually trigger a pull/run:
 
 ```bash
-cd ~/Dev/monorepo/dev/remarkable_ingest
+cd ~/dev/remarkable_ingest
 source .venv/bin/activate
 python main.py
 ```
 
 Or use the convenience script:
+
 ```bash
 ./run.sh
 ```
-
