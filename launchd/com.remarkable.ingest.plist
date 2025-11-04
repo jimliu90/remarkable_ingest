@@ -5,8 +5,13 @@
     <key>Label</key><string>com.remarkable.ingest</string>
     <key>StartCalendarInterval</key>
     <array>
+      <dict><key>Hour</key><integer>0</integer><key>Minute</key><integer>0</integer></dict>
+      <dict><key>Hour</key><integer>3</integer><key>Minute</key><integer>0</integer></dict>
+      <dict><key>Hour</key><integer>6</integer><key>Minute</key><integer>0</integer></dict>
       <dict><key>Hour</key><integer>9</integer><key>Minute</key><integer>0</integer></dict>
+      <dict><key>Hour</key><integer>12</integer><key>Minute</key><integer>0</integer></dict>
       <dict><key>Hour</key><integer>15</integer><key>Minute</key><integer>0</integer></dict>
+      <dict><key>Hour</key><integer>18</integer><key>Minute</key><integer>0</integer></dict>
       <dict><key>Hour</key><integer>21</integer><key>Minute</key><integer>0</integer></dict>
     </array>
     <key>RunAtLoad</key><true/>
@@ -14,11 +19,11 @@
     <array>
       <string>/bin/zsh</string>
       <string>-lc</string>
-      <string>cd ~/Dev/monorepo/dev/remarkable_ingest &amp;&amp; source .venv/bin/activate &amp;&amp; python main.py &gt;&gt; run.log 2&gt;&amp;1</string>
+      <string>cd ~/dev/remarkable_ingest &amp;&amp; source .venv/bin/activate &amp;&amp; python main.py &gt;&gt; run.log 2&gt;&amp;1</string>
     </array>
-    <key>StandardOutPath</key><string>~/Dev/monorepo/dev/remarkable_ingest/stdout.log</string>
-    <key>StandardErrorPath</key><string>~/Dev/monorepo/dev/remarkable_ingest/stderr.log</string>
-    <key>WorkingDirectory</key><string>~/Dev/monorepo/dev/remarkable_ingest</string>
+    <key>StandardOutPath</key><string>~/dev/remarkable_ingest/stdout.log</string>
+    <key>StandardErrorPath</key><string>~/dev/remarkable_ingest/stderr.log</string>
+    <key>WorkingDirectory</key><string>~/dev/remarkable_ingest</string>
   </dict>
 </plist>
 

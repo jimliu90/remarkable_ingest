@@ -1,4 +1,5 @@
 import os, re, unicodedata, pathlib
+from typing import Optional
 
 
 def sanitize_filename(name: str) -> str:
@@ -51,6 +52,32 @@ def clean_filename_for_ocr(name: str) -> str:
     s = s.strip("-")
     
     return s or "document"
+
+
+def extract_page_number(filename: str) -> Optional[int]:
+    """
+    Extract page number from filename like "daily review- page 3" or "document_page_5".
+    Returns page number as int, or None if no page number found.
+    """
+    # Look for patterns like "page 3", "page3", "page_3", "- page 3", etc.
+    match = re.search(r"[_\s-]*(?:page|p)[_\s-]*(\d+)", filename, re.IGNORECASE)
+    if match:
+        return int(match.group(1))
+    return None
+
+
+def extract_base_name(filename: str) -> str:
+    """
+    Extract base name from filename by removing page numbers.
+    Used to group multi-page documents together.
+    """
+    name = os.path.splitext(filename)[0]
+    # Remove page number patterns
+    base = re.sub(r"[_\s-]*(?:page|p)[_\s-]*\d+[_\s-]*", "", name, flags=re.IGNORECASE)
+    # Clean up trailing/leading separators
+    base = re.sub(r"[_\s-]+$", "", base)
+    base = re.sub(r"^[_\s-]+", "", base)
+    return base.strip() or "document"
 
 
 def ensure_dir(path: str):

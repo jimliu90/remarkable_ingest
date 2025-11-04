@@ -36,7 +36,7 @@ def fetch_png_attachments(service, msg_id: str) -> List[Tuple[str, bytes, int]]:
     internal_date is Unix timestamp in milliseconds of when email was received.
     """
     msg = service.users().messages().get(userId="me", id=msg_id).execute()
-    internal_date = msg.get("internalDate", 0)  # Unix timestamp in milliseconds
+    internal_date = msg.get("internalDate", "0")  # Unix timestamp in milliseconds (as string from API)
     attachments = []
     stack = (msg.get("payload", {}) or {}).get("parts", []) or []
     while stack:

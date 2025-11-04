@@ -41,6 +41,8 @@ Quick version:
 
 ## Manual Testing
 
+### Normal Run (with deduplication)
+
 To manually trigger a pull/run:
 
 ```bash
@@ -54,3 +56,19 @@ Or use the convenience script:
 ```bash
 ./run.sh
 ```
+
+This will skip attachments that have already been processed (based on `state.json`).
+
+### Force Reprocessing
+
+To reprocess all attachments (bypassing deduplication), use the `--force` flag:
+
+```bash
+python3 main.py --force
+```
+
+**Note**: This is useful for testing or reprocessing after code changes. The `--force` flag will:
+
+- Process all attachments, even if previously seen
+- Still mark them as seen after processing (so future runs won't reprocess them)
+- **Automatic runs via launchd do NOT use `--force`**, so deduplication is always active in scheduled runs
