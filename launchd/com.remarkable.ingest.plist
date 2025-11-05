@@ -17,13 +17,12 @@
     <key>RunAtLoad</key><true/>
     <key>ProgramArguments</key>
     <array>
-      <string>/bin/zsh</string>
-      <string>-lc</string>
-      <string>cd ~/dev/remarkable_ingest &amp;&amp; source .venv/bin/activate &amp;&amp; python main.py &gt;&gt; run.log 2&gt;&amp;1</string>
+      <string>/Users/jim/dev/remarkable_ingest/.venv/bin/python</string>
+      <string>/Users/jim/dev/remarkable_ingest/main.py</string>
     </array>
-    <key>StandardOutPath</key><string>~/dev/remarkable_ingest/stdout.log</string>
-    <key>StandardErrorPath</key><string>~/dev/remarkable_ingest/stderr.log</string>
-    <key>WorkingDirectory</key><string>~/dev/remarkable_ingest</string>
+    <key>StandardOutPath</key><string>/Users/jim/dev/remarkable_ingest/stdout.log</string>
+    <key>StandardErrorPath</key><string>/Users/jim/dev/remarkable_ingest/stderr.log</string>
+    <key>WorkingDirectory</key><string>/Users/jim/dev/remarkable_ingest</string>
   </dict>
 </plist>
 
