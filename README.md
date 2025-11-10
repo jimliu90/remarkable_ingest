@@ -72,3 +72,44 @@ python3 main.py --force
 - Process all attachments, even if previously seen
 - Still mark them as seen after processing (so future runs won't reprocess them)
 - **Automatic runs via launchd do NOT use `--force`**, so deduplication is always active in scheduled runs
+
+## Weekly Summary Generation
+
+The project includes a weekly summary feature that automatically generates summaries of your markdown files every Sunday at 9:00 AM.
+
+### Setup
+
+1. Add to your `.env` file:
+
+   ```env
+   WEEKLY_SUMMARY_PROMPT="Your prompt here for GPT to generate the summary"
+   WEEKLY_SUMMARY_EMAIL=jim.liu90@gmail.com
+   WEEKLY_SUMMARY_MODEL=gpt-5
+   ```
+
+2. Install the launchd service (see `launchd/README.md`)
+
+### Manual Run
+
+```bash
+cd ~/dev/remarkable_ingest
+source .venv/bin/activate
+python weekly_summary.py
+```
+
+Use `--dry-run` to see what would happen without actually generating:
+
+```bash
+python weekly_summary.py --dry-run
+```
+
+### How It Works
+
+- Generates summary for the past 7 days ending on the most recent Sunday at 9:00 AM
+- Finds all markdown files in `OUTPUT_DIR` (including `review/` and `general/` subdirectories)
+- Sends files to GPT-5o with your custom prompt
+- Saves summary to `{OUTPUT_DIR}/generated-weeklies/YYYY-MM-DD-weekly.md`
+- Emails the summary as an attachment to your configured email address
+- Skips generation if summary already exists for that week (use `--force` to regenerate)
+
+**Note**: If your computer is asleep on Sunday at 9am, the job will run when it wakes up (may be late, but will still generate for the correct week).
