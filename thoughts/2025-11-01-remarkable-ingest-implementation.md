@@ -218,8 +218,12 @@ def prepend_front_matter(md: str, title: str, source: str) -> str:
 
 ```python
 import json, os, threading
+from dotenv import load_dotenv
+
+load_dotenv()
 _LOCK = threading.Lock()
-_STATE_PATH = os.path.expanduser("~/remarkable-ingest/state.json")
+_OUTPUT_DIR = os.path.expanduser(os.getenv("OUTPUT_DIR", "~/Documents/remarkable-md"))
+_STATE_PATH = os.path.join(_OUTPUT_DIR, "application_state.json")
 
 
 def _load():
@@ -247,7 +251,7 @@ def remember(key: str):
         _save(s)
 ```
 
-**Note**: State file location uses `~/remarkable-ingest/state.json` (not in project directory) as specified.
+**Note**: State file location uses `application_state.json` in the output directory (`~/Documents/remarkable-md/` by default), co-located with the processed markdown files.
 
 #### 4. utils/**init**.py
 
@@ -642,7 +646,7 @@ token.json
 credentials.json
 
 # State
-~/remarkable-ingest/state.json
+~/Documents/remarkable-md/application_state.json
 
 # Python
 __pycache__/

@@ -1,6 +1,10 @@
 import json, os, threading
+from dotenv import load_dotenv
+
+load_dotenv()
 _LOCK = threading.Lock()
-_STATE_PATH = os.path.expanduser("~/remarkable-ingest/state.json")
+_OUTPUT_DIR = os.path.expanduser(os.getenv("OUTPUT_DIR", "~/Documents/remarkable-md"))
+_STATE_PATH = os.path.join(_OUTPUT_DIR, "application_state.json")
 
 
 def _load():

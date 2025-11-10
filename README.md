@@ -57,7 +57,7 @@ Or use the convenience script:
 ./run.sh
 ```
 
-This will skip attachments that have already been processed (based on `state.json`).
+This will skip attachments that have already been processed (based on `application_state.json` in the output directory).
 
 ### Force Reprocessing
 

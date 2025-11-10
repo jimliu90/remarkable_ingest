@@ -272,7 +272,7 @@ You've successfully completed end-to-end testing when:
 - [ ] Generated file has proper front matter (title, source)
 - [ ] File contains OCR'd content (not empty)
 - [ ] Running script again doesn't create duplicates (idempotent)
-- [ ] State file exists: `~/remarkable-ingest/state.json`
+- [ ] State file exists: `~/Documents/remarkable-md/application_state.json`
 
 ## Next Steps
 
